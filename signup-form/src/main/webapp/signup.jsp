@@ -12,8 +12,12 @@
 
     <script>
       $(document).ready(function(){
+
+        $('#spinner').hide()
+
         $('form').on('submit',function(e){
           e.preventDefault()
+          $('#spinner').show()
           let formData = $(this).serialize()
           $.ajax({
             url:"register",
@@ -21,9 +25,11 @@
             type:'post',
             success:function(data, textStatus, jqXHR){
               console.log('success')
+              $('#spinner').hide()
             },
             error:function(jqXHR, textStatus, errorThrown){
                 console.log('error')
+                $('#spinner').hide()
             }
           })
         })
@@ -191,7 +197,7 @@
 
             <div class="mt-6 flex items-center justify-end gap-x-6">
               <button type="reset" class="text-sm font-semibold leading-6 text-gray-900">Reset</button>
-              <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+              <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"> <span id="spinner" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Save</button>
             </div>
           </form>
 				</div>

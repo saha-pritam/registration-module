@@ -35,11 +35,16 @@ public class Register extends HttpServlet {
 			prepareStatement.setString(12, req.getParameter("candidates"));
 			prepareStatement.setString(13, req.getParameter("offers"));
 			prepareStatement.setString(14, req.getParameter("push-notifications"));
-			prepareStatement.executeUpdate();
+			
+			Thread.sleep(3000); //This sleep is added just to demonstrate the effect of the spinner in save button
+			prepareStatement.executeUpdate();	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
