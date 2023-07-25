@@ -9,6 +9,27 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 		<meta charset="ISO-8859-1">
 		<title>Sign Up Form</title>
+
+    <script>
+      $(document).ready(function(){
+        $('form').on('submit',function(e){
+          e.preventDefault()
+          let formData = $(this).serialize()
+          $.ajax({
+            url:"register",
+            data:formData,
+            type:'post',
+            success:function(data, textStatus, jqXHR){
+              console.log('success')
+            },
+            error:function(jqXHR, textStatus, errorThrown){
+                console.log('error')
+            }
+          })
+        })
+      });
+    </script>
+
 	</head>
 	<body class="bg-light">
 		<div class="py-3">
@@ -18,6 +39,7 @@
             <div class="rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl space-y-12">
               <div class="pb-12">
                 <h2 class="text-center fs-3 fw-semibold text-gray-900">Sign Up Form</h2>
+                <h2 id="stsMsg"class="text-center fs-5 fw-semibold mt-3"></h2>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div class="sm:col-span-4">
