@@ -15,7 +15,7 @@ public class Register extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		resp.setContentType("text/html");
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jspdb","root","9er$Y%F49yD4");
@@ -37,16 +37,33 @@ public class Register extends HttpServlet {
 			prepareStatement.setString(14, req.getParameter("push-notifications"));
 			
 			Thread.sleep(3000); //This sleep is added just to demonstrate the effect of the spinner in save button
-			prepareStatement.executeUpdate();	
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			prepareStatement.executeUpdate();
+			
+			prepareStatement.close();
+			connection.close();
+			
+			resp.getWriter().print("Registration Successful"); //For successful registration
+		} 
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			resp.getWriter().print("MySQL Driver Class Missing"); //For MySQL Driver class missing
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			if(e.getMessage().contains("username"))
+				resp.getWriter().print("User Name Already Claimed"); //For duplicate user name
+			else if(e.getMessage().contains("email"))
+				resp.getWriter().print("Email Already Claimed"); //For duplicate email
+			else
+				resp.getWriter().print("Generic SQL Exception"); //For unknown SQL exception check server log for more details
+		} 
+		catch (InterruptedException e) {
 			e.printStackTrace();
+			resp.getWriter().print("Thread Interrupted"); //For thread interruption exception
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			resp.getWriter().print("Generic Exception"); //For unknown exception check server log for more details
 		}
 		
 		

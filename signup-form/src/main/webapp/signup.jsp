@@ -12,7 +12,7 @@
 
     <script>
       $(document).ready(function(){
-
+        $('#stsMsg').hide()
         $('#spinner').hide()
 
         $('form').on('submit',function(e){
@@ -24,8 +24,17 @@
             data:formData,
             type:'post',
             success:function(data, textStatus, jqXHR){
-              console.log('success')
               $('#spinner').hide()
+              $('#stsMsg').show()
+              if(data==='Registration Successful'){
+                $('#stsMsg').removeClass('text-danger')
+                $('#stsMsg').addClass('text-success')
+              }
+              else{
+                $('#stsMsg').removeClass('text-success')
+                $('#stsMsg').addClass('text-danger')
+              }
+              $('#stsMsg').text(data)
             },
             error:function(jqXHR, textStatus, errorThrown){
                 console.log('error')
