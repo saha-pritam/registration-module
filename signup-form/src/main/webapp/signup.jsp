@@ -15,7 +15,7 @@
 				<div class="col-md-6 offset-md-3">
           <form>
             <div class="space-y-12">
-              <div class="border-b border-gray-900/10 pb-12">
+              <div class="pb-12">
                 <h2 class="text-center fs-3 fw-semibold text-gray-900">Sign Up Form</h2>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -39,7 +39,7 @@
                 </div>
               </div>
 
-              <div class="border-b border-gray-900/10 pb-12">
+              <div class="pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
