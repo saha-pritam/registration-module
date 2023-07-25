@@ -13,7 +13,7 @@
 		<div class="py-3">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
-          <form>
+          <form action="register" method="post">
             <div class="rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl space-y-12">
               <div class="pb-12">
                 <h2 class="text-center fs-3 fw-semibold text-gray-900">Sign Up Form</h2>
