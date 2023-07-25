@@ -16,8 +16,7 @@
           <form>
             <div class="space-y-12">
               <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be careful what you share.</p>
+                <h2 class="text-center fs-3 fw-semibold text-gray-900">Sign Up Form</h2>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div class="sm:col-span-4">
