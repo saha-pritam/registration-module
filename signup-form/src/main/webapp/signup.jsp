@@ -9,7 +9,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Sign Up Form</title>
 	</head>
-	<body>
+	<body class="bg-light">
 		<div class="py-3">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
