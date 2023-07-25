@@ -37,7 +37,11 @@
               $('#stsMsg').text(data)
             },
             error:function(jqXHR, textStatus, errorThrown){
-                console.log('error')
+                console.log(errorThrown)
+                $('#stsMsg').show()
+                $('#stsMsg').removeClass('text-success')
+                $('#stsMsg').addClass('text-danger')
+                $('#stsMsg').text('Something Went Wrong. Please Try After Sometime.')
                 $('#spinner').hide()
             }
           })
